@@ -99,6 +99,11 @@ namespace btd6ai
                                 weapon.projectile.GetBehavior<CreateTypedTowerModel>().energyTower = Game.instance.model.towers.ElementAt(index);
                             }
 
+                            if (weapon.emission.IsType<LineProjectileEmissionModel>())
+                            {
+                                continue;
+                            }
+
                             float count = 1;
                             weapon.projectile.pierce /= 2;
                             if (weapon.emission.IsType<ArcEmissionModel>())
@@ -113,7 +118,6 @@ namespace btd6ai
                             weapon.emission = new ArcEmissionModel("ArcEmmissionModel_", (int)(6 * count), 0, 360, null, false, false);
                             weapon.animateOnMainAttack = false;
                             weapon.ejectX = 0;
-                            weapon.ejectY = 0;
                             weapon.ejectZ = 0;
                         }
                     }
