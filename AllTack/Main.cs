@@ -74,6 +74,7 @@ namespace btd6ai
                         var weapons = attackModel.weapons;
                         foreach (var weapon in weapons)
                         {
+                            if (weapon.emission.IsType<PrinceOfDarknessEmissionModel>() || weapon.emission.IsType<NecromancerEmissionModel>()) continue;
                             if (weapon.projectile.HasBehavior<CreateTowerModel>())
                             {
                                 string name = weapon.projectile.GetBehavior<CreateTowerModel>().tower.name;
