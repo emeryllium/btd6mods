@@ -66,6 +66,7 @@ namespace btd6ai
             {
                 if (tower.HasBehavior<AttackModel>())
                 {
+                    float range = 1;
                     foreach (var attackModel in tower.GetBehaviors<AttackModel>())
                     {
                         attackModel.RemoveBehaviors<RotateToTargetModel>();
@@ -108,19 +109,25 @@ namespace btd6ai
                             weapon.projectile.pierce /= 2;
                             if (weapon.emission.IsType<ArcEmissionModel>())
                             {
-                                count = weapon.emission.Cast<ArcEmissionModel>().count;
+                                count = (float)Math.Ceiling((decimal)weapon.emission.Cast<ArcEmissionModel>().count / 2);
 
                                 if (weapon.emission.Cast<ArcEmissionModel>().angle == 360)
                                 {
                                     count /= 6;
+                                    range *= 1.5f;
                                 }
                             }
+                            if(!tower.name.Contains("Sentry"))
                             weapon.emission = new ArcEmissionModel("ArcEmmissionModel_", (int)(6 * count), 0, 360, null, false, false);
                             weapon.animateOnMainAttack = false;
                             weapon.ejectX = 0;
-                            weapon.ejectZ = 0;
+                            weapon.ejectY = 0;
                         }
+                        if(!tower.name.Contains("Village"))
+                        attackModel.range *= range / 2;
                     }
+                if(!tower.name.Contains("Village"))
+                tower.range *= range / 1.5f;
                 }
             }
         }
