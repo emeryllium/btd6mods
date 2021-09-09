@@ -133,7 +133,7 @@ namespace btd6ai
                             weapon.ejectY = 0;
                         }
                         if(!tower.name.Contains("Village"))
-                        attackModel.range *= range / 2;
+                        attackModel.range *= range / 1.5f;
                     }
                 if(!tower.name.Contains("Village"))
                 tower.range *= range / 1.5f;
