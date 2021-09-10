@@ -64,6 +64,7 @@ namespace btd6ai
 
             foreach (var tower in Game.instance.model.towers)
             {
+                if (tower.name.Contains("Farm")) continue;
                 if (tower.HasBehavior<AttackModel>())
                 {
                     float range = 1;
@@ -74,7 +75,7 @@ namespace btd6ai
                         var weapons = attackModel.weapons;
                         foreach (var weapon in weapons)
                         {
-                            if (weapon.emission.IsType<PrinceOfDarknessEmissionModel>() || weapon.emission.IsType<NecromancerEmissionModel>()) continue;
+                            if (weapon.emission.IsType<PrinceOfDarknessEmissionModel>() || weapon.emission.IsType<NecromancerEmissionModel>() || weapon.emission.IsType<PerRoundCashBonusTowerModel>()) continue;
                             if (weapon.projectile.HasBehavior<CreateTowerModel>())
                             {
                                 string name = weapon.projectile.GetBehavior<CreateTowerModel>().tower.name;
