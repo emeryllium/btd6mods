@@ -22,7 +22,6 @@ namespace MoabBosses
 {
     public class Main : BloonsTD6Mod
     {
-        public bool nullifyCash = true;
         public override void OnTitleScreen()
         {
             for (int i = 0; i < Game.instance.model.roundSets.Length; i++)
@@ -60,7 +59,7 @@ namespace MoabBosses
             if (bloon == "Zomg") return "Bloonarius3";
             if (bloon == "ZomgFortified") return "BloonariusElite3";
             if (bloon == "DdtCamo") return "Bloonarius4";
-            if (bloon == "DdtCamoFortified") return "BloonariusElite4";
+            if (bloon == "DdtFortifiedCamo") return "BloonariusElite4";
             if (bloon == "Bad") return "Bloonarius5";
             if (bloon == "BadFortified") return "BloonariusElite5";
             return bloon;
