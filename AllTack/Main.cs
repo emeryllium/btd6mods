@@ -127,7 +127,7 @@ namespace btd6ai
                             else
                             {
                                 if (!tower.name.Contains("Sentry"))
-                                    weapon.emission = new ArcEmissionModel("ArcEmmissionModel_", (int)(6 * count), 0, 360, null, false, false);
+                                    weapon.emission = new ArcEmissionModel("ArcEmmissionModel_", (int)(6 * count), 0, 360, null, false);
                             }
                             weapon.animateOnMainAttack = false;
                             weapon.ejectX = 0;
